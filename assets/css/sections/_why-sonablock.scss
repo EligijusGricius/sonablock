@@ -1,0 +1,105 @@
+.why-sonablock {
+    @media screen {
+        @media (min-width: 1300px) {
+            padding-bottom: 43px;
+        }
+    }
+
+    .container {
+        display: flex;
+        gap: 0 24px;
+
+        @media screen {
+            @media (max-width: 1199px) {
+                gap: 0 32px;
+            }
+
+            @media (max-width: 991px) {
+                flex-direction: column;
+                gap: 32px 0;
+            }
+        }
+    }
+
+    &__media,
+    &__content {
+        flex: 1 1 0;
+    }
+
+    &__media {
+        &-image {
+            @media screen {
+                @media (min-width: 992px) {
+                    margin-bottom: 64px;
+                }
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                user-select: none;
+                pointer-events: none;
+                border-radius: 12px;
+
+                @media screen {
+                    @media (max-width: 991px){
+                        max-height: 380px;
+                    }
+                }
+            }
+        }
+
+        .section-heading {
+            margin: 0;
+            font-family: var(--font-700);
+            font-size: 80px;
+
+            @media screen {
+                @media (max-width: 1599px) {
+                    font-size: 64px;
+                }
+
+                @media (max-width: 1299px) {
+                    font-size: 48px;
+                }
+
+                @media (max-width: 991px) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &__content {
+        @media screen {
+            @media (min-width: 1200px) {
+                padding: 24px;
+            }
+        }
+
+        .block-heading {
+            margin: 0 0 20px 0;
+
+            @media screen {
+                @media (max-width: 1199px) {
+                    font-size: 32px;
+                }
+
+                @media (max-width: 575px) {
+                    margin: 0 0 12px 0;
+                }
+            }
+        }
+
+        .accordion {
+            margin-bottom: 24px;
+
+            @media screen {
+                @media (max-width: 575px) {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}

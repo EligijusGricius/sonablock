@@ -1,0 +1,116 @@
+.video-preview {
+    position: relative;
+
+    video {
+        position: relative;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 0 12px 12px 12px;
+        z-index: 1;
+
+        @media screen {
+            @media (max-width: 1599px) {
+                max-height: 500px;
+            }
+
+            @media (max-width: 1499px) {
+                max-height: 420px;
+            }
+
+            @media (max-width: 991px) {
+                max-height: 380px;
+            }
+
+            @media (max-width: 575px) {
+                max-height: 214px;
+            }
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -62px;
+        left: -80px;
+        width: 276px;
+        height: 177px;
+        background: url('../images/video-preview-top-left-corner.svg') left center no-repeat;
+        z-index: 2;
+
+        @media screen {
+            @media (max-width: 1399px) {
+                top: -19px;
+                left: -25px;
+                width: 88px;
+                height: 56px;
+                background: url('../images/video-preview-top-left-corner-sm.svg') left center no-repeat;
+            }
+        }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        right: -80px;
+        bottom: 48px;
+        width: 276px;
+        height: 177px;
+        background: url('../images/video-preview-bottom-right-corner.svg') right center no-repeat;
+        // z-index: -1;
+
+        @media screen {
+            @media (max-width: 1399px) {
+                right: -26px;
+                bottom: 12px;
+                width: 88px;
+                height: 56px;
+                background: url('../images/video-preview-bottom-right-corner-sm.svg') right center no-repeat;
+            }
+        }
+     }
+
+    &__play {
+        position: absolute;
+        left: 32px;
+        bottom: 32px;
+        width: 56px;
+        height: 56px;
+        padding: 0;
+        border: 0;
+        background: #464646 url('../images/icons/video-preview__play-icon.svg') 21px center no-repeat;
+        transition: all 0.3s ease-in-out;
+        border-radius: 50%;
+        z-index: 1;
+
+        @media screen {
+            @media (max-width: 768px) {
+                left: 12px;
+                bottom: 12px;
+                width: 48px;
+                height: 48px;
+                background-position: 19px center;
+                background-size: 14px;
+            }
+        }
+
+        &:hover {
+            background-color: darken(#464646, 10%);
+        }
+    }
+
+    &--playing {
+        .video-preview__play {
+            background-image: url('../images/icons/pauze-icon.svg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        &:hover .video-preview__play {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}

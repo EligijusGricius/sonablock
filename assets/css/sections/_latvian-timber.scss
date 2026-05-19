@@ -1,0 +1,94 @@
+.latvian-timber {
+    padding: 132px 0;
+
+    @media screen {
+        @media (max-width: 991px) {
+            padding-bottom: 64px;
+        }
+    }
+
+    &::after {
+        top: 305px;
+
+        @media screen {
+            @media (max-width: 991px) {
+                top: 165px;
+            }
+        }
+    }
+
+    .container {
+        position: relative;
+        max-width: 1226px;
+        z-index: 1;
+    }
+
+    &__image {
+        display: flex;
+        margin: 0 0 48px 0;
+        user-select: none;
+        pointer-events: none;
+        border-radius: 12px;
+
+        @media screen {
+            @media (max-width: 991px) {
+                margin: 0 0 32px 0;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+
+            @media screen {
+                @media (max-width: 1599px) {
+                    max-height: 500px;
+                }
+
+                @media (max-width: 1499px) {
+                    max-height: 420px;
+                }
+
+                @media (max-width: 991px) {
+                    max-height: 380px;
+                }
+            }
+        }
+    }
+
+    &__details {
+        gap: 0 145px;
+
+        @media screen {
+            @media (max-width: 1399px) {
+                gap: 0 100px;
+            }
+
+            @media (max-width: 991px) {
+                flex-direction: column;
+                gap: 12px 0;
+            }
+        }
+
+        .section-heading {
+            flex-shrink: 0;
+            font-size: 40px;
+
+            @media screen {
+                @media (min-width: 992px) {
+                    width: 49%;
+                }
+
+                @media (max-width: 991px) {
+                    font-size: 32px;
+                }
+
+                @media (max-width: 768px) {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}

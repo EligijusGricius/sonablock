@@ -1,0 +1,159 @@
+.home-hero {
+    position: relative;
+    padding: 216px 0 120px 0;
+    margin: 0;
+    border-radius: 0;
+
+    @media screen {
+        @media (min-width: 1500px) {
+            min-height: 900px;
+        }
+
+        @media (max-width: 1499px) {
+            padding: calc(180px + 92px) 0 180px 0;
+        }
+
+        @media (max-width: 1299px) {
+            padding: calc(160px + 92px) 0 160px 0;
+        }
+
+        @media (max-width: 991px) {
+            padding: calc(140px + 72px) 0 140px 0;
+        }
+
+        @media (max-width: 768px) {
+            display: flex;
+            align-items: center;
+            height: 100dvh;
+        }
+    }
+
+    .bg-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(270deg, #099734 0%, #12B846 18.03%, #1BDA58 36.05%, #12BF86 54.08%, #09A3B5 72.1%);
+        // mix-blend-mode: multiply;
+        opacity: .4;
+        border-radius: 0;
+        z-index: 1;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        height: 212px;      
+        background-size: 100%;  
+        z-index: 1;
+
+        @media screen {
+            @media (min-width: 1700px) {
+                background: url("data:image/svg+xml,%3Csvg width='3003' height='212' viewBox='0 0 3003 212' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_6571_333' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='3003' height='212'%3E%3Crect width='3003' height='212' fill='url(%23paint0_linear_6571_333)'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_6571_333)'%3E%3Crect width='3003' height='212' fill='url(%23paint1_linear_6571_333)'/%3E%3C/g%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_6571_333' x1='1649.77' y1='212' x2='1649.77' y2='83' gradientUnits='userSpaceOnUse'%3E%3Cstop/%3E%3Cstop offset='1' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint1_linear_6571_333' x1='3003' y1='-491.539' x2='296.537' y2='-491.539' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23099734'/%3E%3Cstop offset='0.2' stop-color='%2312B846'/%3E%3Cstop offset='0.4' stop-color='%231BDA58'/%3E%3Cstop offset='0.6' stop-color='%2312BF86'/%3E%3Cstop offset='0.8' stop-color='%2309A3B5'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") center bottom no-repeat;
+                background-size: 100%;  
+            }
+
+            @media (max-width: 1699px) {
+                background: url("data:image/svg+xml,%3Csvg width='1920' height='212' viewBox='0 0 1920 212' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_483_1330' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='1920' height='212'%3E%3Crect width='1920' height='212' fill='url(%23paint0_linear_483_1330)'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_483_1330)'%3E%3Crect width='1920' height='212' fill='url(%23paint1_linear_483_1330)'/%3E%3C/g%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_483_1330' x1='1054.8' y1='212' x2='1054.8' y2='83' gradientUnits='userSpaceOnUse'%3E%3Cstop/%3E%3Cstop offset='1' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint1_linear_483_1330' x1='1920' y1='-491.539' x2='189.594' y2='-491.539' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23099734'/%3E%3Cstop offset='0.2' stop-color='%2312B846'/%3E%3Cstop offset='0.4' stop-color='%231BDA58'/%3E%3Cstop offset='0.6' stop-color='%2312BF86'/%3E%3Cstop offset='0.8' stop-color='%2309A3B5'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") no-repeat center bottom / 100% auto;
+            }
+
+            @media (max-width: 768px) {
+                background: url("data:image/svg+xml,%3Csvg width='412' height='205' viewBox='0 0 412 205' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_483_2279' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='412' height='205'%3E%3Crect width='412' height='205' fill='url(%23paint0_linear_483_2279)'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_483_2279)'%3E%3Crect width='412' height='205' fill='url(%23paint1_linear_483_2279)'/%3E%3C/g%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_483_2279' x1='226.342' y1='205' x2='226.342' y2='80.2594' gradientUnits='userSpaceOnUse'%3E%3Cstop/%3E%3Cstop offset='1' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint1_linear_483_2279' x1='412' y1='-475.308' x2='40.6837' y2='-475.308' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23099734'/%3E%3Cstop offset='0.2' stop-color='%2312B846'/%3E%3Cstop offset='0.4' stop-color='%231BDA58'/%3E%3Cstop offset='0.6' stop-color='%2312BF86'/%3E%3Cstop offset='0.8' stop-color='%2309A3B5'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") no-repeat center bottom / 100% auto;
+            }
+        }
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .text-holder {
+        position: relative;
+        max-width: 49%;
+        color: #fff;
+
+        @media screen {
+            @media (max-width: 1299px) {
+                max-width: 70%;
+            }
+
+            @media (max-width: 1199px) {
+                max-width: 80%;
+            }
+
+            @media (max-width: 991px) AND (min-width: 769px) {
+                max-width: 90%;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            @media (max-width: 768px) {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+
+        h1 {
+            margin: 0 0 32px 0;
+            line-height: 1.1;
+            font-size: 64px;
+            font-family: var(--font-600);
+            letter-spacing: -0.02em;
+            color: #fff;
+            text-transform: uppercase;
+
+            @media screen {
+                @media (max-width: 1299px) {
+                    font-size: 55px;
+                }
+
+                @media (max-width: 768px) {
+                    padding: 0;
+                    margin: 0 0 24px 0;
+                    font-size: 40px;
+                    line-height: 1.1;
+                }
+            }
+
+            & + p {
+                margin: 0;
+            }
+        }
+
+        &__btns {
+            gap: 0 8px;
+            margin: 48px 0 0 0;
+
+            @media screen {
+                @media (max-width: 991px) {
+                    justify-content: center;
+                }
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                    margin-top: 32px;
+
+                    .btn {
+                        flex: 1;
+                    }
+                }
+            }
+        }
+    }
+}
