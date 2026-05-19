@@ -30,6 +30,10 @@
         margin: 0 auto;
         text-align: center;
 
+        &.mw-700 {
+            max-width: 700px;
+        }
+
         h2 {
             font-size: 80px;
             color: #212121;

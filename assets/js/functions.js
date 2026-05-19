@@ -225,6 +225,69 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    /* Contacts team section tabs */
+
+    var team = document.querySelector('.team');
+
+    if (team) {
+        var toggles = team.querySelectorAll('.team__tab-toggle');
+        var tabItems = team.querySelectorAll('.team__tab');
+        var panels = team.querySelectorAll('.team__panel');
+
+        // Sync panel with active tab on load
+        var activeTab = team.querySelector('.team__tab--active .team__tab-toggle');
+        if (activeTab) {
+            var activePanel = team.querySelector('[data-panel="' + activeTab.getAttribute('data-tab') + '"]');
+            if (activePanel) activePanel.classList.add('team__panel--active');
+        }
+
+        toggles.forEach(function (toggle) {
+            toggle.addEventListener('click', function () {
+            var tab = this.closest('.team__tab');
+            var target = this.getAttribute('data-tab');
+
+            tabItems.forEach(function (t) { t.classList.remove('team__tab--active'); });
+            panels.forEach(function (p) { p.classList.remove('team__panel--active'); });
+
+            tab.classList.add('team__tab--active');
+            team.querySelector('[data-panel="' + target + '"]').classList.add('team__panel--active');
+            });
+        });
+    }
+
+    /* Contacts team swiper */
+
+    var teamSwipers = [];
+
+    document.querySelectorAll('.team__tab').forEach(function (tab) {
+    var swiperEl = tab.querySelector('.swiper');
+
+    if (swiperEl) {
+        var pagination = document.createElement('div');
+        pagination.className = 'swiper-pagination';
+        swiperEl.appendChild(pagination);
+
+        teamSwipers.push(new Swiper(swiperEl, {
+        slidesPerView: 1.3,
+        spaceBetween: 8,
+        pagination: {
+            el: pagination,
+            clickable: true
+        },
+        breakpoints: {
+            0: {
+            slidesPerView: 1.3,
+            spaceBetween: 12
+            },
+            768: {
+            slidesPerView: 2.5,
+            spaceBetween: 12
+            }
+        }
+        }));
+    }
+    });
+
     /* Footer menu toggle on mobile */
 
     const footerTitles = document.querySelectorAll('#main-footer .menu-col .widget-title');
