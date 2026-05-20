@@ -58,20 +58,31 @@ document.addEventListener("DOMContentLoaded", function () {
         const swiperContainer = holder.querySelector('.swiper');
 
         if (swiperContainer) {
-            new Swiper(swiperContainer, {
+            let userScrolling = null;
+
+            const swiper = new Swiper(swiperContainer, {
                 slidesPerView: 4,
                 spaceBetween: 24,
-                loop: false,
-                pagination: false,
-                navigation: false,
-                freeMode: true,
+                loop: true,
+                loopAdditionalSlides: 4,
+                speed: 10000,
+                allowTouchMove: true,
                 
+                autoplay: {
+                    delay: 0,
+                    disableOnInteraction: false,
+                },
+
+                freeMode: {
+                    enabled: true,
+                    momentum: false,
+                },
+
                 mousewheel: {
                     enabled: true,
                     forceToAxis: true,
                     releaseOnEdges: true,
                     sensitivity: 1,
-                    thresholdDelta: 5,
                 },
 
                 breakpoints: {
@@ -88,14 +99,32 @@ document.addEventListener("DOMContentLoaded", function () {
                         slidesPerView: 3.2,
                     },
                     1200: {
-                        slidesPerView: 3.5, 
+                        slidesPerView: 3.5,
                         spaceBetween: 24,
                     },
                     1400: {
-                        slidesPerView: 4.5, 
+                        slidesPerView: 4.5,
                         spaceBetween: 24,
                     },
                 }
+            });
+
+            // Hover pause
+            swiperContainer.addEventListener('mouseenter', () => {
+                swiper.autoplay.stop();
+            });
+
+            swiperContainer.addEventListener('mouseleave', () => {
+                swiper.autoplay.start();
+            });
+
+            // Touchpad/mousewheel scroll — pause autoplay temporarily
+            swiperContainer.addEventListener('wheel', () => {
+                swiper.autoplay.stop();
+                clearTimeout(userScrolling);
+                userScrolling = setTimeout(() => {
+                    swiper.autoplay.start();
+                }, 2000);
             });
         }
     });

@@ -11369,6 +11369,10 @@ section[data-title] .container {
 }
 .product-highlights__features .swiper {
   padding-right: 24px;
+  cursor: grab;
+}
+.product-highlights__features .swiper:active {
+  cursor: grabbing;
 }
 .product-highlights__feature {
   position: relative;
