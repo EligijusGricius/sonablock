@@ -177,7 +177,7 @@ body {
 }
 
 main#main {
-    overflow: hidden;
+    overflow: clip;
 }
 
 .content-overlay {
@@ -713,7 +713,7 @@ input[type=number]::-webkit-outer-spin-button {
         }
     }
 
-    span.text-transform {
+    span.text-transform, span.text-regular {
         display: block;
         margin-bottom: 3px;
         line-height: 1.1;
@@ -727,6 +727,10 @@ input[type=number]::-webkit-outer-spin-button {
                 font-size: 12px;
             }
         }
+    }
+
+    span.text-regular {
+        text-transform: none;
     }
 
     .block-heading, .section-heading {
@@ -1290,13 +1294,19 @@ section {
 @import "sections/_about-mission";
 @import "sections/_latvian-timber";
 @import "sections/_cta-section";
+@import "sections/_key-benefits-grid";
+@import "sections/_certificates-downloads";
+@import "sections/_faq";
+@import "sections/_media";
 
 /* Blocks */
 
 @import "blocks/_site-header";
+@import "blocks/_page-header";
 @import "blocks/_product-card";
 @import "blocks/_video-preview";
 @import "blocks/_benefit-card";
+@import "blocks/_benefits-grid";
 @import "blocks/_site-footer";
 
 /* Pages */

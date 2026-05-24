@@ -1,0 +1,40 @@
+.faq {
+    padding: 132px 0;
+
+    @media screen {
+        @media (max-width: 1299px) {
+            padding: 100px 0;
+        }
+
+        @media (max-width: 991px) {
+            padding: 64px 0;
+        }
+    }
+
+    .section-heading {
+        margin-bottom: 40px;
+
+        @media screen {
+            @media (min-width: 1600px) {
+                line-height: 1.1;
+                font-size: 80px;
+            }
+
+            @media (max-width: 768px) {
+                margin-bottom: 40px;
+            }
+
+            @media (max-width: 575px) {
+                font-size: 48px;
+            }
+        }
+    }
+
+    .container {
+        @media screen {
+            @media (min-width: 1200px) {
+                max-width: 982px;
+            }
+        }
+    }
+}
