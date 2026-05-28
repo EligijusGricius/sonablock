@@ -1,0 +1,123 @@
+.story-media {
+    padding: 132px 0;
+
+    @media screen {
+        @media (max-width: 1299px) {
+            padding: 100px 0;
+        }
+
+        @media (max-width: 991px) {
+            padding: 64px 0;
+        }
+    }
+
+    .container {
+        display: flex;
+        gap: 0 85px;
+
+        @media screen {
+            @media (max-width: 1699px) {
+                gap: 0 50px;
+            }
+
+            @media (max-width: 1599px) {
+                gap: 0 30px;
+            }
+
+            @media (max-width: 1199px) {
+                gap: 0;
+            }
+
+            @media (max-width: 991px) {
+                flex-direction: column;
+                gap: 32px 0;
+            }
+        }
+    }
+
+    &__text {
+        flex-grow: 1;
+
+        @media screen {
+            @media (max-width: 991px) {
+                font-size: 20px;
+
+                .section-heading {
+                    margin-bottom: 24px;
+                }
+            }
+        }
+
+        p {
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 24px;
+            }
+        }
+    }
+
+    &__swiper {
+        flex-shrink: 0;
+
+        @media screen {
+            @media (min-width: 992px) {
+                width: calc(49.167% + 120px);
+                margin: -55px -60px 0 0;
+            }
+        }
+
+        .swiper-slide {
+            @media screen {
+                @media (min-width: 992px) {
+                    padding: 55px 60px 0 60px;
+                }
+            }
+
+            &__image {
+                display: flex;
+                margin: 0 0 24px 0;
+                border-radius: 12px;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    border-radius: 12px;
+
+                    @media screen {
+                        @media (min-width: 992px) {
+                            box-shadow: 0px 4px 48px 0px rgba(33, 33, 33, 0.32);
+                        }
+                    }
+                }
+            }
+
+            &__text {
+                p {
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+
+                @media screen {
+                    @media (max-width: 991px) {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+
+        .swiper-nav {
+            width: 100%;
+            justify-content: flex-end;
+            margin-top: 48px;
+            
+            @media screen {
+                @media (min-width: 992px) {
+                    padding-right: 60px;
+                }
+            }
+        }
+    }
+}

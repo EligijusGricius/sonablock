@@ -140,6 +140,21 @@
             gap: 0 8px;
             margin: 48px 0 0 0;
 
+            .sound-off {
+                flex-shrink: 0;
+                width: 54px;
+                height: 54px;
+                padding: 0;
+                background: transparent url('../images/icons/sound-off-icon.svg') center center no-repeat;
+                border: 1px solid #fff;
+                transition: background-color 0.3s ease;
+                border-radius: 50%;
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+            }
+
             @media screen {
                 @media (max-width: 991px) {
                     justify-content: center;

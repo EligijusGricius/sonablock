@@ -170,9 +170,13 @@ body {
 
         @media screen {
             @media (max-width: 991px) {
-            padding-top: 120px;
+                padding-top: 120px;
             }
         }
+    }
+
+    &:has(.home-hero--about) {
+        padding-top: 0;
     }
 }
 
@@ -665,6 +669,30 @@ input[type=number]::-webkit-outer-spin-button {
         }
     }
 
+    &.mw-40 {
+        @media screen {
+            @media (min-width: 1400px) {
+                max-width: 40%;
+            }
+        }
+    }
+
+    &.mw-50 {
+         @media screen {
+            @media (min-width: 1400px) {
+                max-width: 50%;
+            }
+        }
+    }
+
+    &.mw-60 {
+        @media screen {
+            @media (min-width: 1400px) {
+                max-width: 60%;
+            }
+        }
+    }
+
     &.fz-70 {
         font-size: 70px;
 
@@ -975,8 +1003,13 @@ input[type=number]::-webkit-inner-spin-button {
         border-radius: 50%;
         z-index: 1;
 
-        &.swiper-button-disabled, &:hover {
+        &.swiper-button-disabled, &:hover, &.disabled {
             background: rgba(255, 255, 255, 0.4);
+        }
+
+        &.swiper-button-disabled,
+        &.disabled {
+            pointer-events: none;
         }
 
         &::after {
@@ -1004,7 +1037,7 @@ input[type=number]::-webkit-inner-spin-button {
         align-items: center;
         justify-content: center;
         gap: 0 12px;
-        margin: 24px 0;
+        margin: 32px 0 0 0;
 
         &-bullet {
             width: 8px;
@@ -1015,7 +1048,9 @@ input[type=number]::-webkit-inner-spin-button {
             transition: all .3s ease-in-out;
 
             &-active {
-                background-color: #1BDA58;
+                width: 12px;
+                height: 12px;
+                background-color: #054217
             }
         }
     }
@@ -1296,8 +1331,14 @@ section {
 @import "sections/_cta-section";
 @import "sections/_key-benefits-grid";
 @import "sections/_certificates-downloads";
+@import "sections/_innovation-features";
 @import "sections/_faq";
 @import "sections/_media";
+@import "sections/_ecosystem";
+@import "sections/_story-media";
+@import "sections/_media-swiper";
+@import "sections/_team-spotlight";
+@import "sections/_team-members-swiper";
 
 /* Blocks */
 
@@ -1307,6 +1348,9 @@ section {
 @import "blocks/_video-preview";
 @import "blocks/_benefit-card";
 @import "blocks/_benefits-grid";
+@import "blocks/_stat-grid";
+@import "blocks/_features-grid";
+@import "blocks/_team-member-card";
 @import "blocks/_site-footer";
 
 /* Pages */

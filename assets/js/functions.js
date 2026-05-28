@@ -317,6 +317,137 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     });
 
+
+    /* Story media swiper */
+
+    document.querySelectorAll('.story-media-swiper .swiper-holder').forEach(holder => {
+        const swiperContainer = holder.querySelector('.swiper');
+
+        if (swiperContainer) {
+            new Swiper(swiperContainer, {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                loop: false,
+                navigation: {
+                    nextEl: holder.parentElement.querySelector('.swiper-button-next'),
+                    prevEl: holder.parentElement.querySelector('.swiper-button-prev'),
+                },
+            });
+        }
+    });
+
+    /* Media swiper */
+
+    document.querySelectorAll('.media-swiper .swiper').forEach(swiperEl => {
+        const slideCount = swiperEl.querySelectorAll('.swiper-slide').length;
+
+        const swiper = new Swiper(swiperEl, {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: false,
+            effect: 'fade',
+            autoHeight: true,
+            fadeEffect: {
+                crossFade: true,
+            },
+            on: {
+                init: function () {
+                    updateNav(this);
+                },
+                slideChange: function () {
+                    updateNav(this);
+                },
+            },
+        });
+
+        function updateNav(s) {
+            swiperEl.querySelectorAll('.swiper-button-prev').forEach(btn => {
+                btn.classList.toggle('disabled', s.isBeginning);
+                btn.disabled = s.isBeginning;
+            });
+            swiperEl.querySelectorAll('.swiper-button-next').forEach(btn => {
+                btn.classList.toggle('disabled', s.isEnd);
+                btn.disabled = s.isEnd;
+            });
+        }
+
+        swiperEl.addEventListener('click', (e) => {
+            const btn = e.target.closest('.swiper-button-prev, .swiper-button-next');
+            if (!btn) return;
+
+            if (btn.classList.contains('swiper-button-next')) {
+                swiper.slideNext();
+            } else {
+                swiper.slidePrev();
+            }
+        });
+    });
+
+    /* Stat grid swiper */
+
+    document.querySelectorAll('.stat-grid-swiper').forEach(swiperEl => {
+        new Swiper(swiperEl, {
+            slidesPerView: 1,
+            spaceBetween: 16,
+            loop: false,
+            pagination: {
+                el: swiperEl.querySelector('.swiper-pagination'),
+                clickable: true,
+            },
+        });
+    });
+
+    /* Team members swiper */
+
+    document.querySelectorAll('.team-members-swiper .swiper-holder').forEach(holder => {
+        const swiperContainer = holder.querySelector('.swiper');
+
+        if (swiperContainer) {
+
+            const swiper = new Swiper(swiperContainer, {
+                slidesPerView: 4.5,
+                spaceBetween: 0,
+                loop: false,
+                navigation: {
+                    nextEl: holder.parentElement.querySelector('.swiper-button-next'),
+                    prevEl: holder.parentElement.querySelector('.swiper-button-prev'),
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1.1,
+                    },
+
+                    576: {
+                        slidesPerView: 1.5,
+                    },
+
+                    769: {
+                        slidesPerView: 2.8,
+                    },
+
+                    992: {
+                        slidesPerView: 3.2,
+                    },
+
+                    1200: {
+                        slidesPerView: 3.5,
+                        spaceBetween: 0,
+                    },
+
+                    1400: {
+                        slidesPerView: 4.5,
+                        spaceBetween: 0,
+                    },
+
+                    1600: {
+                        slidesPerView: 5.5,
+                        spaceBetween: 0,
+                    },
+                }
+            });
+        }
+    });
+
     /* Footer menu toggle on mobile */
 
     const footerTitles = document.querySelectorAll('#main-footer .menu-col .widget-title');

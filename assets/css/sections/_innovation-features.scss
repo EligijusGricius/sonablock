@@ -1,0 +1,17 @@
+.innovation-features {
+    padding: 132px 0;
+
+    @media screen {
+        @media (max-width: 1299px) {
+            padding: 100px 0;
+        }
+
+        @media (max-width: 991px) {
+            padding: 64px 0;
+        }
+    }
+
+    .section-heading {
+        margin-bottom: 64px;
+    }
+}
