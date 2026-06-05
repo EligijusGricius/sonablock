@@ -178,6 +178,17 @@ body {
     &:has(.home-hero--about) {
         padding-top: 0;
     }
+
+    &:has(.breadcrumb),
+    &:has(.woocommerce-breadcrumb) {
+        padding-top: 110px;
+
+        @media screen {
+            @media (max-width: 991px) {
+                padding-top: 95px;
+            }
+        }
+    }
 }
 
 main#main {
@@ -795,6 +806,40 @@ input[type=number]::-webkit-inner-spin-button {
     margin: 0;
 }
 
+.woocommerce-breadcrumb,
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0 8px;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0 0 64px 0;
+    font-size: 14px;
+    color: #212121;
+
+    @media screen {
+        @media (max-width: 991px) {
+            margin-bottom: 48px;
+        }
+    }
+
+    a {
+        color: #717182;
+
+        &:hover {
+            color: #212121;
+        }
+    }
+
+    .breadcrumb__separator {
+        &::after {
+            content: '/';
+            color: #717182;
+        }
+    }
+}
+
+
 .tooltip-btn {
     display: inline-flex;
     width: 14px;
@@ -1353,12 +1398,14 @@ section {
 @import "blocks/_team-member-card";
 @import "blocks/_posts-grid";
 @import "blocks/_post-item";
+@import "blocks/_related-posts";
 @import "blocks/_pagination";
 @import "blocks/_site-footer";
 
 /* Pages */
 
-@import "pages/contacts-page";
+@import "pages/_contacts-page";
+@import "pages/_single-blog-page";
 
 
 /* /CSS imports */

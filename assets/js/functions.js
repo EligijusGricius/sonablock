@@ -448,6 +448,65 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    /* Related posts swiper */
+
+    document.querySelectorAll('.related-posts').forEach(holder => {
+        const swiperContainer = holder.querySelector('.swiper');
+
+        if (swiperContainer) {
+
+            const swiper = new Swiper(swiperContainer, {
+                slidesPerView: 3,
+                spaceBetween: 24,
+                loop: false,
+                navigation: {
+                    nextEl: holder.parentElement.querySelector('.swiper-button-next'),
+                    prevEl: holder.parentElement.querySelector('.swiper-button-prev'),
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1.1,
+                    },
+
+                    576: {
+                        slidesPerView: 1.5,
+                    },
+
+                    769: {
+                        slidesPerView: 2.2,
+                    },
+
+                    992: {
+                        slidesPerView: 2,
+                    },
+
+                    1200: {
+                        slidesPerView: 3,
+                    },
+
+                }
+            });
+        }
+    });
+
+    /* Responsive tables for blog posts */
+
+    function initResponsiveTables() {
+        const postTables = document.querySelectorAll('.single-blog .post table');
+        if (!postTables.length) return;
+
+        postTables.forEach(function (table) {
+            if (table.parentElement.classList.contains('responsive-table')) return;
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'responsive-table';
+            table.parentNode.insertBefore(wrapper, table);
+            wrapper.appendChild(table);
+        });
+    }
+
+    initResponsiveTables();
+
     /* Footer menu toggle on mobile */
 
     const footerTitles = document.querySelectorAll('#main-footer .menu-col .widget-title');

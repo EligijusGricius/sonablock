@@ -1,0 +1,19 @@
+.related-posts {
+    margin: 0 0 132px 0;
+
+    .swiper {
+        @media screen {
+            @media (max-width: 991px) {
+                width: calc(100% + 60px);
+                margin-left: -30px;
+                padding: 0 30px;
+            }
+
+            @media (max-width: 768px) {
+                width: calc(100% + 40px);
+                margin-left: -20px;
+                padding: 0 20px;
+            }
+        }
+    }
+}
