@@ -875,15 +875,11 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .nav-tabs {
-    gap: 13px;
-    margin: 0 0 70px 0;
+    gap: 8px;
+    margin: 0 0 48px 0;
     border: 0;
 
     @media screen {
-        @media (max-width: 1199px) {
-            margin-bottom: 50px !important;
-        }
-
         @media (max-width: 991px) {
             justify-content: flex-start !important;
             flex-wrap: nowrap;
@@ -902,6 +898,7 @@ input[type=number]::-webkit-inner-spin-button {
         @media (max-width: 768px) {
             width: calc(100% + 40px);
             margin-left: -20px !important;
+            margin-bottom: 32px;
             padding: 2px 20px;
         }
     }
@@ -912,9 +909,10 @@ input[type=number]::-webkit-inner-spin-button {
             align-items: center;
             justify-content: center;
             width: 100%;
-            height: 50px;
-            padding: 0 25px;
-            border: 2px solid #1A1A1A;
+            height: 48px;
+            padding: 0 32px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 0;
             line-height: normal;
             color: #1A1A1A;
             font-size: 16px;
@@ -923,23 +921,25 @@ input[type=number]::-webkit-inner-spin-button {
             text-align: center;
             border-radius: 5px;
             box-sizing: border-box;
+            transition: all .3s ease-in-out;
 
             @media screen {
                 @media (max-width: 991px) {
                    white-space: nowrap;
                 }
+
+                @media (max-width: 768px) {
+                    padding: 0 24px;
+                }
             }
 
             &.active, &:hover {
-                background-color: #B22020;
-                border-color: #B22020;
-                color: #fff;
+                background-color: #fff;
             }
 
             &.active { 
-                background-color: #B22020;
-                border-color: #B22020;
-                color: #fff;
+                background-color: #fff;
+                outline: 1px solid #1BDA58;
             }
         }
     }
