@@ -10658,7 +10658,7 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: clamp(48px, 4vw, 80px);
 }
 .block-heading--gradient, .section-heading--gradient, .page-heading--gradient {
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 100%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -10752,7 +10752,7 @@ input[type=number]::-webkit-inner-spin-button {
 }
 .woocommerce-breadcrumb a,
 .breadcrumb a {
-  color: #717182;
+  color: rgba(33, 33, 33, 0.6);
 }
 .woocommerce-breadcrumb a:hover,
 .breadcrumb a:hover {
@@ -10761,7 +10761,7 @@ input[type=number]::-webkit-inner-spin-button {
 .woocommerce-breadcrumb .breadcrumb__separator::after,
 .breadcrumb .breadcrumb__separator::after {
   content: "/";
-  color: #717182;
+  color: rgba(33, 33, 33, 0.6);
 }
 
 .tooltip-btn {
@@ -14785,6 +14785,7 @@ section[data-title] .container {
   align-items: center;
   gap: 0 24px;
   margin-top: auto;
+  min-height: 61px;
   padding: 12px 0 0 0;
   border-top: 1px solid #C2CBD4;
 }
