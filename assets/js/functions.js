@@ -524,4 +524,230 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    /* Single product gallery */
+
+    if (document.querySelector('.single-product-page .product-images')) {
+        const thumbnailSwiper = new Swiper('.single-product-page .swiper-container-thumbs', {
+            slidesPerView: 6,
+            spaceBetween: 12,
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+            navigation: false,
+            slideToClickedSlide: true,
+    
+            breakpoints: {
+                0: {
+                    slidesPerView: 5.2,
+                    spaceBetween: 12,
+                },
+
+                576: {
+                    slidesPerView: 6.2,
+                    spaceBetween: 12,
+                },
+
+                768: {
+                    slidesPerView: 7.2,
+                    spaceBetween: 12,
+                },
+
+                992: {
+                    slidesPerView: 5.5,
+                    spaceBetween: 12,
+                },
+
+                1200: {
+                    slidesPerView: 6.5,
+                    spaceBetween: 12,
+                },
+            }
+        });
+    
+        const mainSwiper = new Swiper('.product-images .swiper-container-main', {
+            spaceBetween: 10,
+            loop: true,
+            navigation: {
+                nextEl: '.single-product-page .swiper-button-next',
+                prevEl: '.single-product-page .swiper-button-prev',
+            },
+            thumbs: {
+                swiper: thumbnailSwiper
+            }
+        });
+    
+    }
+    
+    /* /Single product gallery */
+
+    /* Quantity Selector Logic */
+
+    const quantityContainers = document.querySelectorAll('.quantity');
+
+    quantityContainers.forEach(container => {
+        const input = container.querySelector('.input-text.qty');
+        const plusBtn = container.querySelector('.plus');
+        const minusBtn = container.querySelector('.minus');
+
+        if (input && plusBtn && minusBtn) {
+            // Handle plus button click
+            plusBtn.addEventListener('click', () => {
+                input.stepUp();
+                input.dispatchEvent(new Event('change', { bubbles: true }));
+            });
+
+            // Handle minus button click
+            minusBtn.addEventListener('click', () => {
+                const min = parseFloat(input.getAttribute('min')) || 1;
+                const currentValue = parseFloat(input.value) || 0;
+
+                // Prevent decreasing below the minimum value
+                if (currentValue > min) {
+                    input.stepDown();
+                    input.dispatchEvent(new Event('change', { bubbles: true }));
+                }
+            });
+
+            // Validation: reset to minimum if user types an invalid number manually
+            input.addEventListener('blur', function() {
+                const min = parseFloat(this.getAttribute('min')) || 1;
+                if (parseFloat(this.value) < min || this.value === "") {
+                    this.value = min;
+                    this.dispatchEvent(new Event('change', { bubbles: true }));
+                }
+            });
+        }
+    });
+
+    /* Show more toggle for product description */
+
+    function initShowMore() {
+        const showMoreButtons = document.querySelectorAll('.single-product-page .summary .description .show-more');
+        
+        if (!showMoreButtons.length) return;
+
+        showMoreButtons.forEach(function (showMoreButton) {
+            const description = showMoreButton.closest('.description');
+            const wrapper = description.querySelector('.description__wrapper');
+
+            if (wrapper.scrollHeight <= wrapper.clientHeight) {
+                showMoreButton.style.display = 'none';
+                return;
+            }
+
+            showMoreButton.addEventListener('click', function () {
+                const isExpanded = description.classList.toggle('is-expanded');
+                showMoreButton.textContent = isExpanded
+                    ? showMoreButton.dataset.textLess
+                    : showMoreButton.dataset.textMore;
+            });
+        });
+    }
+
+    initShowMore();
+
+    /* SINGLE Product highlights features swiper */
+
+    document.querySelectorAll('.single-product-page .product-highlights .swiper-holder').forEach(holder => {
+        const swiperContainer = holder.querySelector('.swiper');
+
+        if (swiperContainer) {
+            let userScrolling = null;
+
+            const swiper = new Swiper(swiperContainer, {
+                slidesPerView: 'auto',
+                spaceBetween: 48,
+                loop: true,
+                loopAdditionalSlides: 4,
+                speed: 10000,
+                allowTouchMove: true,
+                
+                autoplay: {
+                    delay: 0,
+                    disableOnInteraction: false,
+                },
+
+                freeMode: {
+                    enabled: true,
+                    momentum: false,
+                },
+
+                mousewheel: {
+                    enabled: true,
+                    forceToAxis: true,
+                    releaseOnEdges: true,
+                    sensitivity: 1,
+                },
+
+                breakpoints: {
+                    0:    { slidesPerView: 'auto', spaceBetween: 24 },
+                    769:  { slidesPerView: 'auto', spaceBetween: 24 },
+                    1400: { slidesPerView: 'auto', spaceBetween: 48 },
+                }
+            });
+
+            // Hover pause
+            swiperContainer.addEventListener('mouseenter', () => {
+                swiper.autoplay.stop();
+            });
+
+            swiperContainer.addEventListener('mouseleave', () => {
+                swiper.autoplay.start();
+            });
+
+            // Touchpad/mousewheel scroll — pause autoplay temporarily
+            swiperContainer.addEventListener('wheel', () => {
+                swiper.autoplay.stop();
+                clearTimeout(userScrolling);
+                userScrolling = setTimeout(() => {
+                    swiper.autoplay.start();
+                }, 2000);
+            });
+        }
+    });
+
+    /* Custom size toggle in product form */
+
+    function initCustomSize() {
+        const lengthSelect = document.querySelector('#fiber-length-options');
+        const customSizeRow = document.querySelector('.form-row--custom-size-row');
+
+        if (!lengthSelect || !customSizeRow) return;
+
+        lengthSelect.addEventListener('change', function () {
+            customSizeRow.classList.toggle('show', lengthSelect.value === 'Custom size');
+        });
+    }
+
+    initCustomSize();
+
+    /* Product tabs mobile toggle */
+
+    function initProductTabsMobileToggle() {
+        const mobileToggleBtns = document.querySelectorAll('.single-product-page .product-tabs .tab-pane .mobile-toggle-btn');
+        if (!mobileToggleBtns.length) return;
+
+        mobileToggleBtns.forEach(function (mobileToggleBtn) {
+            mobileToggleBtn.addEventListener('click', function () {
+                mobileToggleBtn.parentElement.classList.toggle('show-mobile');
+            });
+        });
+    }
+
+    initProductTabsMobileToggle();
+
+    /* Summary modal accordion toggle */
+
+    function initSummaryAccordion() {
+        const summaryToggles = document.querySelectorAll('.summary-item__toggle');
+        if (!summaryToggles.length) return;
+
+        summaryToggles.forEach(function (summaryToggle) {
+            summaryToggle.addEventListener('click', function () {
+                summaryToggle.closest('.summary-item').classList.toggle('is-open');
+            });
+        });
+    }
+
+    initSummaryAccordion();
+
 });
